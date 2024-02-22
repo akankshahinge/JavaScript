@@ -190,9 +190,13 @@ console.log(output.length) //It will be consider as 1 character in length
 - str.charAt(indx)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Arrays
-Arrays in JS can be collection of same or different datatypes. But generally we have same datatype.
-Array has typeof object
+Arrays:
+- Arrays in JS can be collection of same or different datatypes. But generally we have same datatype.
+- Array has typeof object
+- Adding elements with the high indexes can create undefined holes in the array.
+  Example: const fruits = ["apple", "banana", "grapes"]
+           fruits[6] = "Lemon"
+           output: apple, banana, grapes, NaN, NaN, NaN, Lemon
 Array are mutable 
 - shift(): delete from start and return
 - unshift(): add to start
@@ -203,6 +207,7 @@ Example:
 arr = [1,2,3,4,5,6]
 arr.splice(2,2,101,102) //arr=[1,2,101,102,5,6]
 arr.splice(2,4,101,102,103,104)
+  
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
