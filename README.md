@@ -1,11 +1,12 @@
 # JavaScript
-JS is dynamically typed lang, means we dont have to specify its type beforehand and also the same variable can be used to hold different data types
-JS is case sensitive
+JS is dynamically typed language, means we dont have to specify its type beforehand and also the same variable can be used to hold different data types.
+JS is case sensitive.
 
 script tag can be placed in head or in body section
 Placing scripts at the bottom of the <body> element improves the display speed, because script interpretation slows down the display.
 We can place multiple script files by placing multiple script tags
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Data can be displayed in different ways:
 1. console.log - writing into the browser console
 2. document.write - writing onto HTML output (used only for testing)
@@ -15,6 +16,7 @@ Data can be displayed in different ways:
 JS does not have any print oject or method. Only exception is window.print(), which prints the contetnt of the page (calls printer)
 Example: <button onclick="window.print()">Print this page</button>
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Variables in JS:
 - use const if value and type is not going to change.
 - You can re-declare a var variable but re-declaring let variable will not work.
@@ -23,6 +25,8 @@ Variables in JS:
 Example: 2+3+"5" will give 55
 - Variables name can be started with $ or _
 - Perfer not to use var because of issue in block and functional scope
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Summary:
 1. var - If we declare a variable using var, then we can also declare it again with the same name, and if we want to re-assign its value then we can also do that. A global scope variable.
@@ -61,6 +65,8 @@ In null we know that value is not there, empty value, no value and in undefined 
 Rules for variable name:
 1. Only letter, digits, underscore and $ are allowed.
 2. Only letters, underscore and $ are allowed as first character 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 DataTypes:
 1. Primitive: Number, BigInt, String, Boolean, Undefined, Null, Symbol
@@ -119,7 +125,7 @@ let x =  2 / 0; o/p->infinity
 let y = -2 / 0; o/p-> -infinity
 Infinity is a number: typeof Infinity returns number.
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Operators in JS
 
 1. Comparison operator
@@ -128,6 +134,7 @@ Equal to and also checks dataype (strict) ===
 Not Equal to !=
 Not Equal to and also checks type !==
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Loops and Strings
 - Basic loops: for, while, do while
 
@@ -151,6 +158,8 @@ city: "Pune"
 for(let key in myObject){
 console.log("Key is ",key, " Value is ",myObject[key])
 }
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Strings (strings are immutable, all the changes are in new strings, original string does not change)
 - To declare a string we can use single or double quotes
@@ -180,6 +189,7 @@ console.log(output.length) //It will be consider as 1 character in length
 - str.replace(oldval, newval)
 - str.charAt(indx)
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Arrays
 Arrays in JS can be collection of same or different datatypes. But generally we have same datatype.
 Array has typeof object
@@ -193,6 +203,8 @@ Example:
 arr = [1,2,3,4,5,6]
 arr.splice(2,2,101,102) //arr=[1,2,101,102,5,6]
 arr.splice(2,4,101,102,103,104)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Functions
 - Accessing a function without () returns the function and not the function result
@@ -230,6 +242,8 @@ console.log(val,idx,arr);
 Callback function in forEach has three parameters -> value, index, array itself
 forEach is only used for arrays and not for strings
 forEach is Higher order function (Higher order function is a function which takes a function as a parameter or return function as output)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Array Functions
 
