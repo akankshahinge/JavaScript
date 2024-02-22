@@ -194,9 +194,11 @@ Arrays:
 - Arrays in JS can be collection of same or different datatypes. But generally we have same datatype.
 - Array has typeof object
 - Adding elements with the high indexes can create undefined holes in the array.
+  ```
   Example: const fruits = ["apple", "banana", "grapes"]
            fruits[6] = "Lemon"
            output: apple, banana, grapes, NaN, NaN, NaN, Lemon
+  ```
 Array are mutable 
 - shift(): delete from start and return
 - unshift(): add to start
