@@ -201,15 +201,29 @@ Arrays:
            output: apple, banana, grapes, NaN, NaN, NaN, Lemon
   ```
 - JavaScript has a built-in array constructor new Array();
-```
-const points = new Array(40, 100, 1, 5, 25, 10);
-```
+  ```
+  const points = new Array(40, 100, 1, 5, 25, 10);
+  ```
 - How to recognize an array: The problem is that the JavaScript operator typeof returns "object"
   1. Use isArray: Array.isArray(fruits);
   2. The instanceof operator returns true if an object is created by a given constructor:
   ```
   const fruits = ["Banana", "Orange", "Apple"];
   fruits instanceof Array;
+  ```
+- The length property returns the length (size) of an array
+  ```
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  let size = fruits.length;
+  ```
+- Many languages allows negative bracket indexing like [-1] to access elements from the end of an object / array / string. This is not possible in JavaScript, because [] is used for accessing both arrays and 
+  objects. obj[-1] refers to the value of key -1, not to the last property of the object. The at() method was introduced in ES2022 to solve this problem.
+  ```
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  let fruit = fruits.at(2);  //Apple
+  let last = fruits.at(-1);  //Mango
+  let first = fruits[0]; //  Banana
+  let neg = fruits[-1];  //gives undefined
   ```
 Array are mutable 
 - shift(): delete from start and return
