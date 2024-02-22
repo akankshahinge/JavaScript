@@ -225,17 +225,63 @@ Arrays:
   let first = fruits[0]; //  Banana
   let neg = fruits[-1];  //gives undefined
   ```
+- Using delete() leaves undefined holes in the array. Use pop() or shift() instead.
+  ```
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  delete fruits[0];
+  console.log(fruits[0]) // gives undefined
+  ```
+- The concat() method does not change the existing arrays. It always returns a new array. Example: const myChildren = arr1.concat(arr2, arr3);
+- The copyWithin() method copies array elements to another position in an array
+  1. The copyWithin() method overwrites the existing values.
+  2. The copyWithin() method does not add items to the array.
+  3. The copyWithin() method does not change the length of the array
+  ```
+  Copy to index 2, the elements from index 0 to 2:
+  const fruits = ["Banana", "Orange", "Apple", "Mango", "Kiwi"];
+  fruits.copyWithin(2, 0, 2);  //Banana, Orange, Banana, Orange, Mango, Kiwi
+  Copy to index 2, the elements from index 0:
+  const fruits = ["Banana", "Orange", "Apple", "Mango"];
+  fruits.copyWithin(2, 0);    //Banana, Orange, Banana, Orange
+  ```
+- Flattening an array is the process of reducing the dimensionality of an array. Flattening is useful when you want to convert a multi-dimensional array into a one-dimensional array.
+  ```
+  const myArr = [[1,2],[3,4],[5,6]];
+  const newArr = myArr.flat();    //1,2,3,4,5,6
+  ```
+- The indexOf() method searches an array for an element value and returns its position. Example: let pos = fruits.indexOf("Apple");
+- join() and split()
+  ```
+  const fruits = "Banana,Orange,Apple,Mango";
+  let split_fruits = fruits.split(",");  //[["Banana","Orange","Apple","Mango"]]
+  const fruits = ["Banana","Orange","Apple","Mango"];
+  let join_fruits = fruits.join("*");   //Banana*Orange*Apple*Mango
+  ```
+
+- toString() converts array elements to comma separated string
+  ```
+  const fruits = ["Banana","Orange","Apple","Mango"];
+  let convert_fruits = fruits.toString();  //Banana,Orange,Apple,Mango
+  ```
+  
 Array are mutable 
 - shift(): delete from start and return
 - unshift(): add to start
-- slice(): returns a piece of array
+- push(): adds new element at the end
+- pop(): pops last element
+- slice(): returns a piece of array, so it gives new array
 - splice(): change original array (add, remove, replace)
 Syntax: splice(startIdx,delCount,newElement)
 Example:
 arr = [1,2,3,4,5,6]
 arr.splice(2,2,101,102) //arr=[1,2,101,102,5,6]
-arr.splice(2,4,101,102,103,104)
-  
+arr.splice(2,4,101,102,103,104
+With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array:
+const fruits = ["Orange", "Apple", "Banana", "Kiwi"]
+fruits.splice(0,1)  //Apple,Banana,Kiwi and after this if we do fruits[0] it will give Orange
+console.log(fruits[0]) //gives Orange, and not undefined as in the case of delete
+ES2023 added the Array toSpliced() method as a safe way to splice an array without altering the original array.
+The difference between the new toSpliced() method and the old splice() method is that the new method creates a new array, keeping the original array unchanged, while the old method altered the original array.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
