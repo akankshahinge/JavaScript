@@ -193,11 +193,23 @@ console.log(output.length) //It will be consider as 1 character in length
 Arrays:
 - Arrays in JS can be collection of same or different datatypes. But generally we have same datatype.
 - Array has typeof object
+- Arrays are a special kind of objects, with numbered indexes.
 - Adding elements with the high indexes can create undefined holes in the array.
   ```
   Example: const fruits = ["apple", "banana", "grapes"]
            fruits[6] = "Lemon"
            output: apple, banana, grapes, NaN, NaN, NaN, Lemon
+  ```
+- JavaScript has a built-in array constructor new Array();
+```
+const points = new Array(40, 100, 1, 5, 25, 10);
+```
+- How to recognize an array: The problem is that the JavaScript operator typeof returns "object"
+  1. Use isArray: Array.isArray(fruits);
+  2. The instanceof operator returns true if an object is created by a given constructor:
+  ```
+  const fruits = ["Banana", "Orange", "Apple"];
+  fruits instanceof Array;
   ```
 Array are mutable 
 - shift(): delete from start and return
