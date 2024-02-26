@@ -304,7 +304,7 @@ Array Search
    fruits.includes("Mango"); // is true
    ```
 4. find():
-   Returns the value of the first array element that passes a test function.
+   Returns the value of the first array element that passes a test function. If no values satisfy the testing function, undefined is returned
    ```
    const numbers = [4, 9, 16, 25, 29];
    let first = numbers.find(myFunction);
@@ -314,7 +314,7 @@ Array Search
    }
    ```
 5. findIndex():
-   Returns the index of the first array element that passes a test function.
+   Returns the index of the first array element that passes a test function. If no elements satisfy the testing function, -1 is returned.
    ```
    const numbers = [4, 9, 16, 25, 29];
    let first = numbers.findIndex(myFunction);
@@ -323,13 +323,13 @@ Array Search
    }   //3
    ```
 6. findLast():
-   Method that will start from the end of an array and return the value of the first element that satisfies a condition.
+   Method that will start from the end of an array and return the value of the first element that satisfies a condition.  If no elements satisfy the testing function, undefined is returned.
    ```
    const temp = [27, 28, 30, 40, 42, 35, 30];
    let high = temp.findLast(x => x > 40);   //42
    ```
 7. findLastIndex():
-   Method finds the index of the last element that satisfies a condition
+   Method finds the index of the last element that satisfies a condition. If no elements satisfy the testing function, -1 is returned.
    ```
    const temp = [27, 28, 30, 40, 42, 35, 30];
    let pos = temp.findLastIndex(x => x > 40); //4
