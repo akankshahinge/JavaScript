@@ -283,6 +283,58 @@ console.log(fruits[0]) //gives Orange, and not undefined as in the case of delet
 ES2023 added the Array toSpliced() method as a safe way to splice an array without altering the original array.
 The difference between the new toSpliced() method and the old splice() method is that the new method creates a new array, keeping the original array unchanged, while the old method altered the original array.
 
+Array Search
+1. indexOf():
+   The indexOf() method searches an array for an element value and returns its position. Returns -1 if the item is not found. If the item is present more than once, it returns the position of the first 
+   occurrence.
+   ```
+   const fruits = ["Apple", "Orange", "Apple", "Mango"];
+   let position = fruits.indexOf("Apple") + 1;
+   ```
+2. lastIndexOf():
+   Returns the position of the last occurrence of the specified element.
+   ```
+   const fruits = ["Apple", "Orange", "Apple", "Mango"];
+   let position = fruits.lastIndexOf("Apple") + 1; //3
+   ```
+3. includes():
+   This allows us to check if an element is present in an array. Array.includes() allows to check for NaN values. Unlike Array.indexOf().
+   ```
+   const fruits = ["Banana", "Orange", "Apple", "Mango"];
+   fruits.includes("Mango"); // is true
+   ```
+4. find():
+   Returns the value of the first array element that passes a test function.
+   ```
+   const numbers = [4, 9, 16, 25, 29];
+   let first = numbers.find(myFunction);
+
+   function myFunction(value, index, array) {
+      return value > 18;
+   }
+   ```
+5. findIndex():
+   Returns the index of the first array element that passes a test function.
+   ```
+   const numbers = [4, 9, 16, 25, 29];
+   let first = numbers.findIndex(myFunction);
+   function myFunction(value, index, array) {
+      return value > 18;
+   }   //3
+   ```
+6. findLast():
+   Method that will start from the end of an array and return the value of the first element that satisfies a condition.
+   ```
+   const temp = [27, 28, 30, 40, 42, 35, 30];
+   let high = temp.findLast(x => x > 40);   //42
+   ```
+7. findLastIndex():
+   Method finds the index of the last element that satisfies a condition
+   ```
+   const temp = [27, 28, 30, 40, 42, 35, 30];
+   let pos = temp.findLastIndex(x => x > 40); //4
+   ```
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Functions
