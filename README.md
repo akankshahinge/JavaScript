@@ -388,6 +388,78 @@ Array Sort
    ];
    cars.sort(function (a,b){return a.year-b.year});
    ```
+   Array Iteration:
+   1. forEach(): The forEach() method calls a function (a callback function) once for each array element.
+      Note that the function takes 3 arguments:
+      - The item value
+      - The item index
+      - The array itself
+      ```
+      const myArray = [1,2,3,4,5,6]
+      let txt = "";
+      myArray.forEach(myFunc);
+
+      function myFunc(value, index, array){
+      txt += value + "<br>"
+      }
+
+      document.getElementById("demo").innerHTML = txt;
+      ```
+   2. every(): The every() method checks if all array values pass a test.
+      ```
+      const numbers = [45, 4, 9, 16, 25];
+      let allOver18 = numbers.every(myFunction);
+      
+      function myFunction(value, index, array) {
+        return value > 18;
+      }    //false
+      ```
+   3. some(): The some() method checks if some array values pass a test.
+      ```
+      const numbers = [45, 4, 9, 16, 25];
+      let someOver18 = numbers.some(myFunction);
+
+      function myFunction(value, index, array) {
+        return value > 18;
+      }   //true
+      ```
+   4. Array.from(): method returns an Array object from any object with a length property or any iterable object. Create an Array from a String.
+      ```
+      Array.from("ABCDEFG");
+      ```
+   5. key(): Method returns an Array Iterator object with the keys of an array
+      ```
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      const keys = fruits.keys(); //0, 1, 2, 3
+      ```
+   6. entries(): key/value pairs
+      ```
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      const f = fruits.entries();
+      
+      for (let x of f) {
+        document.getElementById("demo").innerHTML += x;
+      }
+      //0,Banana
+      //1,Orange
+      //2,Apple
+      //3,Mango
+      ```
+   7. with(): with() method as a safe way to update elements in an array without altering the original array.
+      ```
+      const months = ["Januar", "Februar", "Mar", "April"];
+      const myMonths = months.with(2, "March");  //Januar,Februar,March,April
+      ```
+   8. Spread Opeartor (...)
+      The ... operator expands an iterable (like an array) into more elements:
+      ```
+      const q1 = ["Jan", "Feb", "Mar"];
+      const q2 = ["Apr", "May", "Jun"];
+      const q3 = ["Jul", "Aug", "Sep"];
+      const q4 = ["Oct", "Nov", "May"];
+      
+      const year = [...q1, ...q2, ...q3, ...q4];  //Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,May
+      ```
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Functions
