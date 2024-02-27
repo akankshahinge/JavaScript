@@ -365,7 +365,7 @@ Array Sort
    ```
 5. Numeric Sort:
    By default, the sort() function sorts values as strings. This works well for strings ("Apple" comes before "Banana"). If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than   
-   "1". Because of this, the sort() method will produce incorrect result when sorting numbers.
+   "1". Because of this, the sort() method will produce incorrect result when sorting numbers. We can fix this by using compare function.
    Ascending order
    ```
    const points = [40, 100, 1, 5, 25, 10];
@@ -388,9 +388,6 @@ Array Sort
    ];
    cars.sort(function (a,b){return a.year-b.year});
    ```
-
-
-You can fix this by providing a compare function:
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Functions
