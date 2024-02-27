@@ -334,7 +334,63 @@ Array Search
    const temp = [27, 28, 30, 40, 42, 35, 30];
    let pos = temp.findLastIndex(x => x > 40); //4
    ```
+Array Sort
+1. sort():
+   The sort() method sorts an array alphabetically. Sorts element in place.
+   A function that defines the sort order. The return value should be a number whose sign indicates the relative order of the two elements: negative if a is less than b, positive if a is greater than b, and zero 
+   if they are equal. NaN is treated as 0. The function is called with the following arguments,
+   a: The first element for comparison. Will never be undefined.
+   b: The second element for comparison. Will never be undefined.
+   ```
+   const fruits = ["Banana", "Orange", "Apple", "Mango"];   
+   fruits.sort();     //Apple,Banana, Mango, Orange
+   ```
+2. reverse():
+   The reverse() method reverses the elements in an array. By combining sort() and reverse(), you can sort an array in descending order.
+   ```
+   const fruits = ["Banana", "Orange", "Apple", "Mango"];
+   fruits.reverse();  //Mango,Apple,Orange,Banana
+   ```
+3. toSorted():
+   Method as a safe way to sort an array without altering the original array.
+   ```
+   const months = ["Jan", "Feb", "Mar", "Apr"];
+   const sorted = months.toSorted();
+   ```
+4. toReversed():
+   Method as a safe way to reverse an array without altering the original array.
+   ```
+   const months = ["Jan", "Feb", "Mar", "Apr"];
+   const reversed = months.toReversed();
+   ```
+5. Numeric Sort:
+   By default, the sort() function sorts values as strings. This works well for strings ("Apple" comes before "Banana"). If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than   
+   "1". Because of this, the sort() method will produce incorrect result when sorting numbers.
+   Ascending order
+   ```
+   const points = [40, 100, 1, 5, 25, 10];
+   points.sort(function(a, b){return a - b}); //1,5,10,25,40,100
+   ```
+   Descending order
+   ```
+   const points = [40, 100, 1, 5, 25, 10];
+   points.sort(function(a, b){return b - a}); //100, 40, 25, 10, 5, 1
+   ```
+   If the result is negative, a is sorted before b. If the result is positive, b is sorted before a. If the result is 0, no changes are done with the sort order of the two values.
+   The compare function compares all the values in the array, two values at a time (a, b). When comparing 40 and 100, the sort() method calls the compare function(40, 100). The function calculates 40 - 100 (a - 
+   b), and since the result is negative (-60),  the sort function will sort 40 as a value lower than 100.
+   Also we can sort objects:
+   ```
+   const cars = [
+   {type:"Volvo", year:2016},
+   {type:"Saab", year:2001},
+   {type:"BMW", year:2010}
+   ];
+   cars.sort(function (a,b){return a.year-b.year});
+   ```
 
+
+You can fix this by providing a compare function:
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Functions
