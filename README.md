@@ -189,8 +189,7 @@ console.log(output.length) //It will be consider as 1 character in length
 - str.replace(oldval, newval)
 - str.charAt(indx)
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Arrays:
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------Arrays:
 - Arrays in JS can be collection of same or different datatypes. But generally we have same datatype.
 - Array has typeof object
 - Arrays are a special kind of objects, with numbered indexes.
