@@ -387,7 +387,7 @@ Array Sort
    ];
    cars.sort(function (a,b){return a.year-b.year});
    ```
-   Array Iteration:
+Array Iteration:
    1. forEach(): The forEach() method calls a function (a callback function) once for each array element.
       Note that the function takes 3 arguments:
       - The item value
