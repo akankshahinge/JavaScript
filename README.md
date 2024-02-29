@@ -493,7 +493,8 @@ Methods:
    const d = new Date("2015-03-25T12:00:00Z");
    ```
 Date Get Methods
-```
+This will give local time.
+
 | Methods            | Description                                   |
 |--------------------|-----------------------------------------------|
 | getFullYear()      | Get year as a four digit number (yyyy)        |
@@ -506,8 +507,19 @@ Date Get Methods
 | getMilliseconds()  | Get millisecond (0-999)                       |
 | getTime()          | Get time (milliseconds since January 1, 1970) |
 
-```
 In JavaScript, the first day of the week (day 0) is Sunday.
+To get UTC time
+| Method               | Equivalent Method | Description                 |
+|----------------------|-------------------|-----------------------------|
+| getUTCDate()         | getDate()         | Returns the UTC date        |
+| getUTCFullYear()     | getFullYear()     | Returns the UTC year        |
+| getUTCMonth()        | getMonth()        | Returns the UTC month       |
+| getUTCDay()          | getDay()          | Returns the UTC day         |
+| getUTCHours()        | getHours()        | Returns the UTC hour        |
+| getUTCMinutes()      | getMinutes()      | Returns the UTC minutes     |
+| getUTCSeconds()      | getSeconds()      | Returns the UTC seconds     |
+| getUTCMilliseconds() | getMilliseconds() | Returns the UTC milliseconds|
+
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Functions
