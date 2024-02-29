@@ -494,17 +494,18 @@ Methods:
    ```
 Date Get Methods
 ```
-Methods  | Description
-------------- | -------------
-getFullYear()  | Get year as a four digit number (yyyy)
-getMonth()  | Get month as a number (0-11)
-getDay() | Get weekday as a number (0-6)
-getDate() | Get day as a number (1-31)
-getHours() | Get hour (0-23)
-getMinutes() | Get minute (0-59)
-getSeconds() | Get second (0-59)
-getMilliseconds() | Get millisecond (0-999)
-getTime() | Get time (milliseconds since January 1, 1970)
+| Methods            | Description                                   |
+|--------------------|-----------------------------------------------|
+| getFullYear()      | Get year as a four digit number (yyyy)       |
+| getMonth()         | Get month as a number (0-11)                  |
+| getDay()           | Get weekday as a number (0-6)                 |
+| getDate()          | Get day as a number (1-31)                    |
+| getHours()         | Get hour (0-23)                               |
+| getMinutes()       | Get minute (0-59)                             |
+| getSeconds()       | Get second (0-59)                             |
+| getMilliseconds()  | Get millisecond (0-999)                       |
+| getTime()          | Get time (milliseconds since January 1, 1970)|
+
 ```
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
