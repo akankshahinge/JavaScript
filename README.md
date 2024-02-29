@@ -460,7 +460,54 @@ Array Iteration:
       const year = [...q1, ...q2, ...q3, ...q4];  //Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,May
       ```
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Javascript Date Objects:
+```
+const d = new Date();
+const d = new Date("2022-03-25");
+const d = new Date("October 13, 2014 11:13:00");
+const d = new Date(2018, 11, 24, 10, 33, 30, 0);
+```
+By default, JavaScript will use the browser's time zone and display a date as a full text string: Thu Feb 29 2024 13:37:21 GMT+0530 (India Standard Time)
+Specifying a month higher than 11, will not result in an error but add the overflow to the next year
+Specifying a day higher than max, will not result in an error but add the overflow to the next month
+You cannot omit month. If you supply only one parameter it will be treated as milliseconds.
+const d = new Date(2018); -> Thu Jan 01 1970 05:30:02 GMT+0530 (India Standard Time)
+Zero time is January 01, 1970 00:00:00 UTC.
 
+Methods:
+1. toString(): converted to a string
+   ```
+   const d = new Date();
+   d.toString();
+   ```
+2. toDateString(): method converts a date to a more readable format
+   ```
+   const d = new Date();
+   d.toDateString();    //Thu Feb 29 2024
+   ```
+3. toUTCString() method converts a date to a string using the UTC standard
+4. toISOString() method converts a date to a string using the ISO standard
+5. ISO Dates: Date and time is separated with a capital T. UTC time is defined with a capital letter Z. When setting a date, without specifying the time zone, JavaScript will use the browser's time zone.
+   When getting a date, without specifying the time zone, the result is converted to the browser's time zone.
+   ```
+   const d = new Date("2015-03-25T12:00:00Z");
+   ```
+Date Get Methods
+```
+Methods  | Description
+------------- | -------------
+getFullYear()  | Get year as a four digit number (yyyy)
+getMonth()  | Get month as a number (0-11)
+getDay() | Get weekday as a number (0-6)
+getDate() | Get day as a number (1-31)
+getHours() | Get hour (0-23)
+getMinutes() | Get minute (0-59)
+getSeconds() | Get second (0-59)
+getMilliseconds() | Get millisecond (0-999)
+getTime() | Get time (milliseconds since January 1, 1970)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Functions
 - Accessing a function without () returns the function and not the function result
 - Variables declared within a JavaScript function, become LOCAL to the function.
