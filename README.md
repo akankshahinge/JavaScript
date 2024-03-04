@@ -580,7 +580,41 @@ Math Methods:
 8. Math.random(): returns random number between 0(inclusive) and 1(exclusive)
    ```
    Math.random()    //0.043196079117372665
+   //Generate random number between 0 to 9
+   let r = Math.floor(Math.random*10));
+   //Generate random number between 1 to 10
+   let r = Math.floor(Math.random()*11)
    ```
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Boolean:
+- The Boolean value of "" (empty string) is false
+- The Boolean value of undefined is false
+- The Boolean value of null is false
+- The Boolean value of NaN is false
+
+  Normally JavaScript booleans are primitive values created from literals:
+  let x = false; //type is boolean
+  But booleans can also be defined as objects with the keyword new:
+  let y = new Boolean(false);  //type is object
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Comparison Operator:
+1. Nullish Coalescing Operator (??)
+    The ?? operator returns the first argument if it is not nullish (null or undefined).
+    Otherwise it returns the second argument.
+    ```
+    let name = null;
+    let text = "missing";
+    let result = name ?? text;   //output -> missing
+    ```
+2. Optional Chaining Operator (?.)
+   The ?. operator returns undefined if an object is undefined or null (instead of throwing an error).
+   ```
+   // Create an object:
+   const car = {type:"Fiat", model:"500", color:"white"};
+   // Ask for car name:
+   document.getElementById("demo").innerHTML = car?.name;  //undefined
+   ```
+3. Ternary Operator (?:)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Functions
