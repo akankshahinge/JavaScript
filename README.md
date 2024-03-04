@@ -538,6 +538,50 @@ Date Set Methods
 | setTime()          | Set the time (milliseconds since January 1, 1970)|
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Math: The JavaScript Math object allows you to perform mathematical tasks on numbers.
+Unlike other objects, the Math object has no constructor.
+The Math object is static.
+All methods and properties can be used without creating a Math object first.
+```
+Math.PI //3.141592653589793
+Math.E
+```
+Math Methods:
+1. Number to integer:
+   ```
+   Math.round(x)	Returns x rounded to its nearest integer Eg. 4.6 => 5 , 4.5 => 5, 4.4 => 4
+   Math.ceil(x)	Returns x rounded up to its nearest integer Eg. 4.4 => 5
+   Math.floor(x)	Returns x rounded down to its nearest integer Eg. 4.9 => 4
+   Math.trunc(x)	Returns the integer part of x Eg. 4.5 => 4
+   ```
+2. Math.sign(x) returns if x is positive, negative or null
+   ```
+   Math.sign(4) => 1
+   Math.sign(-4) => -1
+   ```
+3. Math.pow()
+   ```
+   Math.pow(8, 2);
+   ```
+4. Math.sqrt()
+   ```
+   Math.sqrt(64);
+   ```
+5. Math.abs()
+   ```
+   Math.abs(-4.7);
+   ```
+6. Math.sin()
+7. Math.min() and Math.max(): can be used to find the lowest or highest value in a list of arguments
+   ```
+   Math.min(0, 150, 30, 20, -8, -200);    //-200
+   ```
+8. Math.random(): returns random number between 0(inclusive) and 1(exclusive)
+   ```
+   Math.random()    //0.043196079117372665
+   ```
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Functions
 - Accessing a function without () returns the function and not the function result
 - Variables declared within a JavaScript function, become LOCAL to the function.
