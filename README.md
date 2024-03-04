@@ -128,11 +128,11 @@ Infinity is a number: typeof Infinity returns number.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Operators in JS
 
-1. Comparison operator
-Equal to ==
-Equal to and also checks dataype (strict) ===
-Not Equal to !=
-Not Equal to and also checks type !==
+Comparison operator
+- Equal to ==
+  Equal to and also checks dataype (strict) ===
+- Not Equal to !=
+  Not Equal to and also checks type !==
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Loops and Strings
