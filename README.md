@@ -460,6 +460,75 @@ Array Iteration:
       
       const year = [...q1, ...q2, ...q3, ...q4];  //Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,May
       ```
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Set:  Is a collection of unique values. Can traverse using forEach loop
+1. Creating new Set
+   ```
+   const letters = new Set(["a","b","c"]);
+   ```
+2. Add values - If you add equal elements(mutiple same elements), only the first will be saved:
+   ```
+   const letters = new Set();
+   letters.add("S")
+   ```
+3. values(): gives all values in set
+   ```
+   letters.values()  
+   ```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Map: 
+A Map holds key-value pairs where the keys can be any datatype. A Map remembers the original insertion order of the keys.
+1. Create new map:
+   ```
+   my_map = new Map([["apple",500],["banana",200],["kiwi",600]])
+   ```
+2. set(): to add elements
+   ```
+   my_map = new Map()
+   my_map.set("apples",500)
+   //The set() method can also be used to change existing Map values:
+   my_map.set("apples",400)
+   ```
+3. get(): to get value of a key
+   ```
+   let fruit = my_map.get("apples")
+   ```
+4. size property returns the size of map
+   ```
+   fruits.size;
+   ```
+5. delete() removes the element
+   ```
+   let fruit = my_map.delete("apples");
+   ```
+6. has(): The has() method returns true if a key exists in a Map:
+   ```
+   fruits.has("apples");
+   ```
+7. Iterate using for Each
+   ```
+   let text = "";
+   fruits.forEach (function(value, key) {
+   text += key + ' = ' + value;
+    })
+   ```
+8. entries(): The entries() method returns an iterator object with the [key, values] in a Map:
+   ```
+   // List all entries
+    let text = "";
+    for (const x of fruits.entries()) {
+      text += x;
+    }
+   ```
+Difference between Objects and Maps:
+| Property    | Object                    | Map                        |
+|-------------|---------------------------|----------------------------|
+| Iterable    | Not directly iterable     | Directly iterable          |
+| Size        | Do not have a size property | Have a size property     |
+| Key Types   | Keys must be Strings (or Symbols) | Keys can be any datatype |
+| Key Order   | Keys are not well ordered | Keys are ordered by insertion |
+| Defaults    | Have default keys         | Do not have default keys  |
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Javascript Date Objects:
 ```
