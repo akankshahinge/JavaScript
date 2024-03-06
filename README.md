@@ -126,6 +126,137 @@ let y = -2 / 0; o/p-> -infinity
 Infinity is a number: typeof Infinity returns number.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Typeof: You can use the typeof operator to find the data type of a JavaScript variable.
+```
+typeof "John"                 // Returns "string"
+typeof 3.14                   // Returns "number"
+typeof NaN                    // Returns "number"
+typeof false                  // Returns "boolean"
+typeof [1,2,3,4]              // Returns "object"
+typeof {name:'John', age:34}  // Returns "object"
+typeof new Date()             // Returns "object"
+typeof function () {}         // Returns "function"
+typeof myCar                  // Returns "undefined" *
+typeof null                   // Returns "object"
+```
+- The data type of NaN is number
+- The data type of an array is object
+- The data type of a date is object
+- The data type of null is object
+- The data type of an undefined variable is undefined *
+- In JavaScript, a variable without a value, has the value undefined. The type is also undefined.
+- The data type of a variable that has not been assigned a value is also undefined *
+- The typeof operator returns "object" for objects, arrays, and null.
+```
+typeof {name:'John', age:34} // Returns "object"
+typeof [1,2,3,4]             // Returns "object" (not "array", see note below)
+typeof null                  // Returns "object"
+typeof function myFunc(){}   // Returns "function"
+```
+As we can see that typeof opeartor is not able to tell if the object is array, null or object. So if we want to distinguish and find if object is array then we can use constructor property
+The Constructor Property: The constructor property returns the constructor function for all JavaScript variables.
+```
+"John".constructor                // Returns function String()  {[native code]}
+(3.14).constructor                // Returns function Number()  {[native code]}
+false.constructor                 // Returns function Boolean() {[native code]}
+[1,2,3,4].constructor             // Returns function Array()   {[native code]}
+{name:'John',age:34}.constructor  // Returns function Object()  {[native code]}
+new Date().constructor            // Returns function Date()    {[native code]}
+function () {}.constructor        // Returns function Function(){[native code]}
+```
+So we can check if the array we passed is array or not
+```
+function isArray(myArray) {
+  return myArray.constructor === Array;
+}
+```
+Also, we can check if date type using constructor
+```
+function isDate(myDate) {
+  return myDate.constructor === Date;
+}
+```
+Undefined: A variable without a value, has the value undefined. The type is also undefined.
+```
+let car;    // Value is undefined, type is undefined
+```
+Any variable can be emptied, by setting the value to undefined. The type will also be undefined.
+```
+car = undefined;    // Value is undefined, type is undefined
+```
+Null: In JavaScript null is "nothing". It is supposed to be something that doesn't exist. Unfortunately, in JavaScript, the data type of null is an object.
+You can empty an object by setting it to null:
+```
+let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+person = null;    // Now value is null, but type is still an object
+```
+Difference between Null and Undefined
+undefined and null are equal in value but different in type:
+```
+typeof undefined           // undefined
+typeof null                // object
+
+null === undefined         // false
+null == undefined          // true
+```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Type Conversion
+1. Number(): The global method Number() converts a variable (or a value) into a number.
+   ```
+   Number("3.14") //3.14
+   Number(Math.PI) //3.141592653589793
+   Number(" ") //0
+   Number("")  //NaN
+   ```
+   ```
+   //Dates to Number
+   d = new Date();
+   Number(d)          // returns 1404568027739
+   ```
+   If the variable cannot be converted, it will still become a number, but with the value NaN (Not a Number):
+   ```
+   let y = "John";   // y is a string
+   let x = + y;      // x is a number (NaN)
+   ```
+   ```
+   //Boolean to number
+   Number(false)     // returns 0
+   Number(true)      // returns 1
+   ```
+2. String(): The global method String() can convert numbers to strings.
+   ```
+   String(x)         // returns a string from a number variable x
+   String(123)       // returns a string from a number literal 123
+   String(100 + 23)  // returns a string from a number from an expression -> 123
+   ```
+   ```
+   // Dates to String
+   String(Date())  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+   ```
+   ```
+   //converting boolean to string
+   String(false)      // returns "false"
+   String(true)       // returns "true"
+   ```
+Automatic Type conversion
+```
+5 + null    // returns 5         because null is converted to 0
+"5" + null  // returns "5null"   because null is converted to "null"
+"5" + 2     // returns "52"      because 2 is converted to "2"
+"5" - 2     // returns 3         because "5" is converted to 5
+"5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
+```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+instanceof: The instanceof operator returns true if an object is an instance of the specified object:
+```
+const cars = ["Saab", "Volvo", "BMW"];
+
+(cars instanceof Array);  //true
+(cars instanceof Object); //true
+(cars instanceof String); //false
+(cars instanceof Number); //false
+```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Operators in JS
 
 Comparison operator
