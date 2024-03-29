@@ -988,3 +988,53 @@ class ToyotaCar {
 }
 
 let fortuner = new ToyotaCar();
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Shallow Copy in Objects
+- When a reference variable is copied into a new reference variable using the assignment operator, a shallow copy of the referenced object is created.
+- In simple words, a reference variable mainly stores the address of the object it refers to.
+- When a new reference variable is assigned the value of the old reference variable, the address stored in the old reference variable is copied into the new one.
+- This means both the old and new reference variables point to the same object in memory. As a result, if the state of the object changes through any of the reference 
+  variables it is reflected for both.
+  Example:
+  ```
+    let employee = {
+      eid: "E102",
+      ename: "Jack",
+      eaddress: "New York",
+      salary: 50000
+    }
+ 
+    console.log("Employee=> ", employee);
+    let newEmployee = employee;    // Shallow copy
+    console.log("New Employee=> ", newEmployee);
+     
+    console.log("---------After modification----------");
+    newEmployee.ename = "Beck";
+    console.log("Employee=> ", employee);
+    console.log("New Employee=> ", newEmployee);
+  
+    Output:
+    employee = {
+    eid: "E102",
+    ename: "Beck",
+    eaddress: "New York",
+    salary: 50000
+    }
+    employee = {
+    eid: "E102",
+    ename: "Beck",
+    eaddress: "New York",
+    salary: 50000
+    }
+  ```
+  Deep Copy in Objects
+  - Unlike the shallow copy, deep copy makes a copy of all the members of the old object, allocates a separate memory location for the new object, and then assigns the     
+    copied members to the new object.
+  - In this way, both the objects are independent of each other and in case of any modification to either one, the other is not affected. Also, if one of the objects is 
+    deleted the other still remains in the memory. 
+  - There are multiple ways to create a deep copy. Use spread opeartor or assign() method.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
