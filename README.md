@@ -1034,6 +1034,19 @@ Shallow Copy in Objects
   - In this way, both the objects are independent of each other and in case of any modification to either one, the other is not affected. Also, if one of the objects is 
     deleted the other still remains in the memory. 
   - There are multiple ways to create a deep copy. Use spread opeartor or assign() method.
+    ```
+    1. Using Spread Opeartor: but one drawback of spread operator is that, it does not work for nested objects.
+    const a = {
+    name: "xyz",
+    age: 26
+    }
+    const b = {...a}
+    2. using assign(): but one drawback of assign is that, it does not work for nested objects.
+    let b = Object.assign({}, a)
+    
+    3. You simply stringify your object and parse it right after
+       let b = JSON.parse(JSON.stringify(a))
+    ```
 
 
 
