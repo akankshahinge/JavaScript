@@ -39,6 +39,7 @@ console.log(title_inner_html) //DOM learning <span style="display: none;">Hello 
 const heading = document.getElementsByClassName("heading");
 console.log("Heading - ", heading);
 
+//className returns HTMLCollection
 const myListClass = document.getElementsByClassName('mylist');  //gives HTML Collection, and which dont have method to loop on it
 console.log("mylist ",myListClass)
 
@@ -64,7 +65,7 @@ const myul = document.querySelector('ul');      //gives enitre list
 const myli = myul.querySelector('li');          //gives first list item
 myli.style.background = "green";
 //------------------------------------------------------------------------------------------------------
-//Query Selector All
+//Query Selector All - Returns NodeList
 const myLi = document.querySelectorAll('li');  //here all li will be in NodeList myLi
 myLi[1].style.background = "green";
 
