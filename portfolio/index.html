@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akanksha - Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-color: rgb(14, 14, 75);
+            color: white;
+            font-family: "Poppins"
+        }
+        nav{
+            background-color: rgb(36, 36, 109);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 90px;
+        }
+        nav ul{
+            display: flex;
+            justify-content: space-between;
+           
+        }
+        nav ul li{
+            list-style: none;
+            margin: 0 22px;
+        }
+        .left{
+            font-size: 1.5rem;
+        }
+        .firstSection{
+            display: flex;
+            justify-content: space-around;
+            margin: 55px 0;
+        }
+        .firstSection > div{
+            width: 30%;
+        }
+        .leftSection{
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            margin-top: 5%;
+        }
+        .rightSection{
+            margin-top: 5%;
+        }
+        .main_img{
+            height:425px;
+            width: 425px;
+        }
+        .purple{
+            color: rgb(184, 147, 220);
+        }
+        nav div ul li a{
+            text-decoration: none;
+            color: white;
+        }
+        nav div ul li a:hover{
+            color: rgb(184, 147, 220);
+            font-size: 1.06rem;
+        }
+        .pastExperience{
+            font-size: 1.2rem;
+            margin-left: 10%;
+            margin-top: 15%;
+        }
+        .secondSection h1{
+            font-size: 1.2rem;
+        }
+        .secondSection{
+            height: 80vh;
+        }
+        .box{
+            background-color: white;
+            height: 2px;
+            width:70vw;
+            margin: 140px 0;
+            margin-left: 10%;
+            display:flex;
+            justify-content: space-between;
+            margin-right: 20px;
+        }
+        .vertical_box{
+            background-color: white;
+            width:2px;
+            height: 11vh;
+        }
+        .vertical_desc{
+            width: 17vw;
+            color: rgb(172, 164, 164);
+        }
+        .vertical_title{
+            margin-top: 40px;
+            width: 17vw;
+        }
+        .vertical_year{
+            width: 17vw; 
+        }
+        .vertical_jd{
+            width: 17vw; 
+            color: rgb(128, 122, 122);
+            margin-top: 18px;
+            font-size: 12px;
+        }
+        .vertical_img{
+            height:40px;
+            width: 40px;
+            position:relative;
+            top: -80px;
+            left: -20px
+        }
+        .footer{
+            background-color: rgb(59, 59, 121);
+            color: gray;
+            height: 75px;
+            margin-top: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">Akanksha's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact Me</a></li>
+                    <li><a href="">Projects</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                
+                <div>Hi, I am <span class="purple">Akanksha</span> and I am <span class="purple"><span id="element">Software Developer</span></span></div>
+                
+            </div>
+            <div class="rightSection">
+                <img class="main_img" src="girl_developer.png" alt="Developer's Image">
+            </div>
+        </section>
+        <section class="secondSection">
+            <div class="pastExperience">
+                <h1> Work Experiences</h1>
+            </div>
+            <div class="box">
+                <div class="vertical_box">
+                    <img class ="vertical_img" src="graduation_cap.png" alt="graduation">
+                    <div class ="vertical_title">Graduation</div>
+                    <div class ="vertical_year">(2015-2019)</div>
+                    <div class ="vertical_desc">B.E Computer Engineering</div>
+                    <div class="vertical_jd">Graduated from Savitribai Phule Pune University with CGPA 9.25 in Computer Engineering</div>
+                </div>
+                <div class="vertical_box">
+                    <img class ="vertical_img" src="cloud_dev.png" alt="graduation">
+                    <div class ="vertical_title">ESDS Software Solution Pvt. Ltd</div>
+                    <div class ="vertical_year">(2019-2021)</div>
+                    <div class ="vertical_desc">Jr. Research Engineer</div>
+                    <div class="vertical_jd">Evaluated, modified and tested open source technologies (CouchDB, Redis, Docker Python SDK) and documented the research study. Analysed and researched Machine Learning libraries and contributed to Number Plate Detection project (Image Recognition as a Service). Implemented wrappers/scripts in python for Container as a Service (CaaS), CouchDB, Database as a Service using Flask Framework. Conducted training sessions on Python.
+                        </div>
+                </div>
+                <div class="vertical_box">
+                    <img class ="vertical_img" src="python_logo.png" alt="graduation">
+                    <div class ="vertical_title">Oracle India Pvt. Ltd.</div>
+                    <div class ="vertical_year">(2021- Present)</div>
+                    <div class ="vertical_desc">Associate Software Developer</div>
+                    <div class="vertical_jd">
+                        Created soft and hard delete API to delete Status Page instance (Feature development)
+                        Handled database operations using OracleDB
+                        Documented Status Page API Specifications (Open API Specifications) in Swagger
+                        Implemented, exposed, demonstrated create Status Page V1 API to one of the partners
+                        Performed compliance version upgrade for 3rd and 4th parties.
+                    </div>
+                </div>
+                <div class="vertical_box">
+                    <img class ="vertical_img" src="web.png" alt="graduation">
+                    <div class ="vertical_title">Oracle India Pvt. Ltd.</div>
+                    <div class ="vertical_year">(2021- Present)</div>
+                    <div class ="vertical_desc">Software Developer 2</div>
+                    <div class="vertical_jd">Developed components, component groups, scheduled maintenances, incidents APIs (CRUD
+                        operations) in Flask (Python) for OCI Status Service V2 project. Implemented bug fixes for UI and backend using ReactJS.
+                        Participated in Deployments and On-Call rotation to resolve partners issues
+                        Recorded and delivered V2 development videos for demonstration sessions with clients</div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer">
+                <div class="footer-first">Copyright &#169; akankshaportfolio.com | All rights reserved</div>
+            </div>
+        </footer>
+    </main>
+    <!--Adding Animation using Typescript-->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+          strings: ['Software Developer', 'Backend Developer', 'Frontend Developer'],
+          typeSpeed: 50,
+        });
+      </script>
+</body>
+</html>
