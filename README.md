@@ -126,13 +126,144 @@ let y = -2 / 0; o/p-> -infinity
 Infinity is a number: typeof Infinity returns number.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Typeof: You can use the typeof operator to find the data type of a JavaScript variable.
+```
+typeof "John"                 // Returns "string"
+typeof 3.14                   // Returns "number"
+typeof NaN                    // Returns "number"
+typeof false                  // Returns "boolean"
+typeof [1,2,3,4]              // Returns "object"
+typeof {name:'John', age:34}  // Returns "object"
+typeof new Date()             // Returns "object"
+typeof function () {}         // Returns "function"
+typeof myCar                  // Returns "undefined" *
+typeof null                   // Returns "object"
+```
+- The data type of NaN is number
+- The data type of an array is object
+- The data type of a date is object
+- The data type of null is object
+- The data type of an undefined variable is undefined *
+- In JavaScript, a variable without a value, has the value undefined. The type is also undefined.
+- The data type of a variable that has not been assigned a value is also undefined *
+- The typeof operator returns "object" for objects, arrays, and null.
+```
+typeof {name:'John', age:34} // Returns "object"
+typeof [1,2,3,4]             // Returns "object" (not "array", see note below)
+typeof null                  // Returns "object"
+typeof function myFunc(){}   // Returns "function"
+```
+As we can see that typeof opeartor is not able to tell if the object is array, null or object. So if we want to distinguish and find if object is array then we can use constructor property
+The Constructor Property: The constructor property returns the constructor function for all JavaScript variables.
+```
+"John".constructor                // Returns function String()  {[native code]}
+(3.14).constructor                // Returns function Number()  {[native code]}
+false.constructor                 // Returns function Boolean() {[native code]}
+[1,2,3,4].constructor             // Returns function Array()   {[native code]}
+{name:'John',age:34}.constructor  // Returns function Object()  {[native code]}
+new Date().constructor            // Returns function Date()    {[native code]}
+function () {}.constructor        // Returns function Function(){[native code]}
+```
+So we can check if the array we passed is array or not
+```
+function isArray(myArray) {
+  return myArray.constructor === Array;
+}
+```
+Also, we can check if date type using constructor
+```
+function isDate(myDate) {
+  return myDate.constructor === Date;
+}
+```
+Undefined: A variable without a value, has the value undefined. The type is also undefined.
+```
+let car;    // Value is undefined, type is undefined
+```
+Any variable can be emptied, by setting the value to undefined. The type will also be undefined.
+```
+car = undefined;    // Value is undefined, type is undefined
+```
+Null: In JavaScript null is "nothing". It is supposed to be something that doesn't exist. Unfortunately, in JavaScript, the data type of null is an object.
+You can empty an object by setting it to null:
+```
+let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+person = null;    // Now value is null, but type is still an object
+```
+Difference between Null and Undefined
+undefined and null are equal in value but different in type:
+```
+typeof undefined           // undefined
+typeof null                // object
+
+null === undefined         // false
+null == undefined          // true
+```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Type Conversion
+1. Number(): The global method Number() converts a variable (or a value) into a number.
+   ```
+   Number("3.14") //3.14
+   Number(Math.PI) //3.141592653589793
+   Number(" ") //0
+   Number("")  //NaN
+   ```
+   ```
+   //Dates to Number
+   d = new Date();
+   Number(d)          // returns 1404568027739
+   ```
+   If the variable cannot be converted, it will still become a number, but with the value NaN (Not a Number):
+   ```
+   let y = "John";   // y is a string
+   let x = + y;      // x is a number (NaN)
+   ```
+   ```
+   //Boolean to number
+   Number(false)     // returns 0
+   Number(true)      // returns 1
+   ```
+2. String(): The global method String() can convert numbers to strings.
+   ```
+   String(x)         // returns a string from a number variable x
+   String(123)       // returns a string from a number literal 123
+   String(100 + 23)  // returns a string from a number from an expression -> 123
+   ```
+   ```
+   // Dates to String
+   String(Date())  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"
+   ```
+   ```
+   //converting boolean to string
+   String(false)      // returns "false"
+   String(true)       // returns "true"
+   ```
+Automatic Type conversion
+```
+5 + null    // returns 5         because null is converted to 0
+"5" + null  // returns "5null"   because null is converted to "null"
+"5" + 2     // returns "52"      because 2 is converted to "2"
+"5" - 2     // returns 3         because "5" is converted to 5
+"5" * "2"   // returns 10        because "5" and "2" are converted to 5 and 2
+```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+instanceof: The instanceof operator returns true if an object is an instance of the specified object:
+```
+const cars = ["Saab", "Volvo", "BMW"];
+
+(cars instanceof Array);  //true
+(cars instanceof Object); //true
+(cars instanceof String); //false
+(cars instanceof Number); //false
+```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Operators in JS
 
-1. Comparison operator
-Equal to ==
-Equal to and also checks dataype (strict) ===
-Not Equal to !=
-Not Equal to and also checks type !==
+Comparison operator
+- Equal to ==
+  Equal to and also checks dataype (strict) ===
+- Not Equal to !=
+  Not Equal to and also checks type !==
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Loops and Strings
@@ -189,7 +320,7 @@ console.log(output.length) //It will be consider as 1 character in length
 - str.replace(oldval, newval)
 - str.charAt(indx)
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Arrays:
 - Arrays in JS can be collection of same or different datatypes. But generally we have same datatype.
 - Array has typeof object
@@ -304,7 +435,7 @@ Array Search
    fruits.includes("Mango"); // is true
    ```
 4. find():
-   Returns the value of the first array element that passes a test function.
+   Returns the value of the first array element that passes a test function. If no values satisfy the testing function, undefined is returned
    ```
    const numbers = [4, 9, 16, 25, 29];
    let first = numbers.find(myFunction);
@@ -314,7 +445,7 @@ Array Search
    }
    ```
 5. findIndex():
-   Returns the index of the first array element that passes a test function.
+   Returns the index of the first array element that passes a test function. If no elements satisfy the testing function, -1 is returned.
    ```
    const numbers = [4, 9, 16, 25, 29];
    let first = numbers.findIndex(myFunction);
@@ -323,20 +454,369 @@ Array Search
    }   //3
    ```
 6. findLast():
-   Method that will start from the end of an array and return the value of the first element that satisfies a condition.
+   Method that will start from the end of an array and return the value of the first element that satisfies a condition.  If no elements satisfy the testing function, undefined is returned.
    ```
    const temp = [27, 28, 30, 40, 42, 35, 30];
    let high = temp.findLast(x => x > 40);   //42
    ```
 7. findLastIndex():
-   Method finds the index of the last element that satisfies a condition
+   Method finds the index of the last element that satisfies a condition. If no elements satisfy the testing function, -1 is returned.
    ```
    const temp = [27, 28, 30, 40, 42, 35, 30];
    let pos = temp.findLastIndex(x => x > 40); //4
    ```
+Array Sort
+1. sort():
+   The sort() method sorts an array alphabetically. Sorts element in place.
+   A function that defines the sort order. The return value should be a number whose sign indicates the relative order of the two elements: negative if a is less than b, positive if a is greater than b, and zero 
+   if they are equal. NaN is treated as 0. The function is called with the following arguments,
+   a: The first element for comparison. Will never be undefined.
+   b: The second element for comparison. Will never be undefined.
+   ```
+   const fruits = ["Banana", "Orange", "Apple", "Mango"];   
+   fruits.sort();     //Apple,Banana, Mango, Orange
+   ```
+2. reverse():
+   The reverse() method reverses the elements in an array. By combining sort() and reverse(), you can sort an array in descending order.
+   ```
+   const fruits = ["Banana", "Orange", "Apple", "Mango"];
+   fruits.reverse();  //Mango,Apple,Orange,Banana
+   ```
+3. toSorted():
+   Method as a safe way to sort an array without altering the original array.
+   ```
+   const months = ["Jan", "Feb", "Mar", "Apr"];
+   const sorted = months.toSorted();
+   ```
+4. toReversed():
+   Method as a safe way to reverse an array without altering the original array.
+   ```
+   const months = ["Jan", "Feb", "Mar", "Apr"];
+   const reversed = months.toReversed();
+   ```
+5. Numeric Sort:
+   By default, the sort() function sorts values as strings. This works well for strings ("Apple" comes before "Banana"). If numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than   
+   "1". Because of this, the sort() method will produce incorrect result when sorting numbers. We can fix this by using compare function.
+   Ascending order
+   ```
+   const points = [40, 100, 1, 5, 25, 10];
+   points.sort(function(a, b){return a - b}); //1,5,10,25,40,100
+   ```
+   Descending order
+   ```
+   const points = [40, 100, 1, 5, 25, 10];
+   points.sort(function(a, b){return b - a}); //100, 40, 25, 10, 5, 1
+   ```
+   If the result is negative, a is sorted before b. If the result is positive, b is sorted before a. If the result is 0, no changes are done with the sort order of the two values.
+   The compare function compares all the values in the array, two values at a time (a, b). When comparing 40 and 100, the sort() method calls the compare function(40, 100). The function calculates 40 - 100 (a - 
+   b), and since the result is negative (-60),  the sort function will sort 40 as a value lower than 100.
+   Also we can sort objects:
+   ```
+   const cars = [
+   {type:"Volvo", year:2016},
+   {type:"Saab", year:2001},
+   {type:"BMW", year:2010}
+   ];
+   cars.sort(function (a,b){return a.year-b.year});
+   ```
+Array Iteration:
+   1. forEach(): The forEach() method calls a function (a callback function) once for each array element.
+      Note that the function takes 3 arguments:
+      - The item value
+      - The item index
+      - The array itself
+      ```
+      const myArray = [1,2,3,4,5,6]
+      let txt = "";
+      myArray.forEach(myFunc);
+
+      function myFunc(value, index, array){
+      txt += value + "<br>"
+      }
+
+      document.getElementById("demo").innerHTML = txt;
+      ```
+   2. every(): The every() method checks if all array values pass a test.
+      ```
+      const numbers = [45, 4, 9, 16, 25];
+      let allOver18 = numbers.every(myFunction);
+      
+      function myFunction(value, index, array) {
+        return value > 18;
+      }    //false
+      ```
+   3. some(): The some() method checks if some array values pass a test.
+      ```
+      const numbers = [45, 4, 9, 16, 25];
+      let someOver18 = numbers.some(myFunction);
+
+      function myFunction(value, index, array) {
+        return value > 18;
+      }   //true
+      ```
+   4. Array.from(): method returns an Array object from any object with a length property or any iterable object. Create an Array from a String.
+      ```
+      Array.from("ABCDEFG");
+      ```
+   5. key(): Method returns an Array Iterator object with the keys of an array
+      ```
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      const keys = fruits.keys(); //0, 1, 2, 3
+      ```
+   6. entries(): key/value pairs
+      ```
+      const fruits = ["Banana", "Orange", "Apple", "Mango"];
+      const f = fruits.entries();
+      
+      for (let x of f) {
+        document.getElementById("demo").innerHTML += x;
+      }
+      //0,Banana
+      //1,Orange
+      //2,Apple
+      //3,Mango
+      ```
+   7. with(): with() method as a safe way to update elements in an array without altering the original array.
+      ```
+      const months = ["Januar", "Februar", "Mar", "April"];
+      const myMonths = months.with(2, "March");  //Januar,Februar,March,April
+      ```
+   8. Spread Opeartor (...)
+      The ... operator expands an iterable (like an array) into more elements:
+      ```
+      const q1 = ["Jan", "Feb", "Mar"];
+      const q2 = ["Apr", "May", "Jun"];
+      const q3 = ["Jul", "Aug", "Sep"];
+      const q4 = ["Oct", "Nov", "May"];
+      
+      const year = [...q1, ...q2, ...q3, ...q4];  //Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,May
+      ```
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Set:  Is a collection of unique values. Can traverse using forEach loop
+1. Creating new Set
+   ```
+   const letters = new Set(["a","b","c"]);
+   ```
+2. Add values - If you add equal elements(mutiple same elements), only the first will be saved:
+   ```
+   const letters = new Set();
+   letters.add("S")
+   ```
+3. values(): gives all values in set
+   ```
+   letters.values()  
+   ```
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Map: 
+A Map holds key-value pairs where the keys can be any datatype. A Map remembers the original insertion order of the keys.
+1. Create new map:
+   ```
+   my_map = new Map([["apple",500],["banana",200],["kiwi",600]])
+   ```
+2. set(): to add elements
+   ```
+   my_map = new Map()
+   my_map.set("apples",500)
+   //The set() method can also be used to change existing Map values:
+   my_map.set("apples",400)
+   ```
+3. get(): to get value of a key
+   ```
+   let fruit = my_map.get("apples")
+   ```
+4. size property returns the size of map
+   ```
+   fruits.size;
+   ```
+5. delete() removes the element
+   ```
+   let fruit = my_map.delete("apples");
+   ```
+6. has(): The has() method returns true if a key exists in a Map:
+   ```
+   fruits.has("apples");
+   ```
+7. Iterate using for Each
+   ```
+   let text = "";
+   fruits.forEach (function(value, key) {
+   text += key + ' = ' + value;
+    })
+   ```
+8. entries(): The entries() method returns an iterator object with the [key, values] in a Map:
+   ```
+   // List all entries
+    let text = "";
+    for (const x of fruits.entries()) {
+      text += x;
+    }
+   ```
+Difference between Objects and Maps:
+| Property    | Object                    | Map                        |
+|-------------|---------------------------|----------------------------|
+| Iterable    | Not directly iterable     | Directly iterable          |
+| Size        | Do not have a size property | Have a size property     |
+| Key Types   | Keys must be Strings (or Symbols) | Keys can be any datatype |
+| Key Order   | Keys are not well ordered | Keys are ordered by insertion |
+| Defaults    | Have default keys         | Do not have default keys  |
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Javascript Date Objects:
+```
+const d = new Date();
+const d = new Date("2022-03-25");
+const d = new Date("October 13, 2014 11:13:00");
+const d = new Date(2018, 11, 24, 10, 33, 30, 0);
+```
+By default, JavaScript will use the browser's time zone and display a date as a full text string: Thu Feb 29 2024 13:37:21 GMT+0530 (India Standard Time)
+Specifying a month higher than 11, will not result in an error but add the overflow to the next year
+Specifying a day higher than max, will not result in an error but add the overflow to the next month
+You cannot omit month. If you supply only one parameter it will be treated as milliseconds.
+const d = new Date(2018); -> Thu Jan 01 1970 05:30:02 GMT+0530 (India Standard Time)
+Zero time is January 01, 1970 00:00:00 UTC.
 
+Methods:
+1. toString(): converted to a string
+   ```
+   const d = new Date();
+   d.toString();
+   ```
+2. toDateString(): method converts a date to a more readable format
+   ```
+   const d = new Date();
+   d.toDateString();    //Thu Feb 29 2024
+   ```
+3. toUTCString() method converts a date to a string using the UTC standard
+4. toISOString() method converts a date to a string using the ISO standard
+5. ISO Dates: Date and time is separated with a capital T. UTC time is defined with a capital letter Z. When setting a date, without specifying the time zone, JavaScript will use the browser's time zone.
+   When getting a date, without specifying the time zone, the result is converted to the browser's time zone.
+   ```
+   const d = new Date("2015-03-25T12:00:00Z");
+   ```
+6. Date.now() returns the number of milliseconds since January 1, 1970.
+   ```
+   let ms = Date.now();  //1709209014763
+   ```
+Date Get Methods
+This will give local time.
+
+| Methods            | Description                                   |
+|--------------------|-----------------------------------------------|
+| getFullYear()      | Get year as a four digit number (yyyy)        |
+| getMonth()         | Get month as a number (0-11)                  |
+| getDay()           | Get weekday as a number (0-6)                 |
+| getDate()          | Get day as a number (1-31)                    |
+| getHours()         | Get hour (0-23)                               |
+| getMinutes()       | Get minute (0-59)                             |
+| getSeconds()       | Get second (0-59)                             |
+| getMilliseconds()  | Get millisecond (0-999)                       |
+| getTime()          | Get time (milliseconds since January 1, 1970) |
+
+In JavaScript, the first day of the week (day 0) is Sunday.
+
+To get UTC time
+| Method               | Equivalent Method | Description                 |
+|----------------------|-------------------|-----------------------------|
+| getUTCDate()         | getDate()         | Returns the UTC date        |
+| getUTCFullYear()     | getFullYear()     | Returns the UTC year        |
+| getUTCMonth()        | getMonth()        | Returns the UTC month       |
+| getUTCDay()          | getDay()          | Returns the UTC day         |
+| getUTCHours()        | getHours()        | Returns the UTC hour        |
+| getUTCMinutes()      | getMinutes()      | Returns the UTC minutes     |
+| getUTCSeconds()      | getSeconds()      | Returns the UTC seconds     |
+| getUTCMilliseconds() | getMilliseconds() | Returns the UTC milliseconds|
+
+Date Set Methods
+| Method             | Description                                       |
+|--------------------|---------------------------------------------------|
+| setDate()          | Set the day as a number (1-31)                   |
+| setFullYear()      | Set the year (optionally month and day)          |
+| setHours()         | Set the hour (0-23)                              |
+| setMilliseconds()  | Set the milliseconds (0-999)                     |
+| setMinutes()       | Set the minutes (0-59)                           |
+| setMonth()         | Set the month (0-11)                             |
+| setSeconds()       | Set the seconds (0-59)                           |
+| setTime()          | Set the time (milliseconds since January 1, 1970)|
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Math: The JavaScript Math object allows you to perform mathematical tasks on numbers.
+Unlike other objects, the Math object has no constructor.
+The Math object is static.
+All methods and properties can be used without creating a Math object first.
+```
+Math.PI //3.141592653589793
+Math.E
+```
+Math Methods:
+1. Number to integer:
+   ```
+   Math.round(x)	Returns x rounded to its nearest integer Eg. 4.6 => 5 , 4.5 => 5, 4.4 => 4
+   Math.ceil(x)	Returns x rounded up to its nearest integer Eg. 4.4 => 5
+   Math.floor(x)	Returns x rounded down to its nearest integer Eg. 4.9 => 4
+   Math.trunc(x)	Returns the integer part of x Eg. 4.5 => 4
+   ```
+2. Math.sign(x) returns if x is positive, negative or null
+   ```
+   Math.sign(4) => 1
+   Math.sign(-4) => -1
+   ```
+3. Math.pow()
+   ```
+   Math.pow(8, 2);
+   ```
+4. Math.sqrt()
+   ```
+   Math.sqrt(64);
+   ```
+5. Math.abs()
+   ```
+   Math.abs(-4.7);
+   ```
+6. Math.sin()
+7. Math.min() and Math.max(): can be used to find the lowest or highest value in a list of arguments
+   ```
+   Math.min(0, 150, 30, 20, -8, -200);    //-200
+   ```
+8. Math.random(): returns random number between 0(inclusive) and 1(exclusive)
+   ```
+   Math.random()    //0.043196079117372665
+   //Generate random number between 0 to 9
+   let r = Math.floor(Math.random*10));
+   //Generate random number between 1 to 10
+   let r = Math.floor(Math.random()*11)
+   ```
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Boolean:
+- The Boolean value of "" (empty string) is false
+- The Boolean value of undefined is false
+- The Boolean value of null is false
+- The Boolean value of NaN is false
+
+  Normally JavaScript booleans are primitive values created from literals:
+  let x = false; //type is boolean
+  But booleans can also be defined as objects with the keyword new:
+  let y = new Boolean(false);  //type is object
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Comparison Operator:
+1. Nullish Coalescing Operator (??)
+    The ?? operator returns the first argument if it is not nullish (null or undefined).
+    Otherwise it returns the second argument.
+    ```
+    let name = null;
+    let text = "missing";
+    let result = name ?? text;   //output -> missing
+    ```
+2. Optional Chaining Operator (?.)
+   The ?. operator returns undefined if an object is undefined or null (instead of throwing an error).
+   ```
+   // Create an object:
+   const car = {type:"Fiat", model:"500", color:"white"};
+   // Ask for car name:
+   document.getElementById("demo").innerHTML = car?.name;  //undefined
+   ```
+3. Ternary Operator (?:)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Functions
 - Accessing a function without () returns the function and not the function result
 - Variables declared within a JavaScript function, become LOCAL to the function.
@@ -463,8 +943,27 @@ First create it, let el = document.createElement("div")
 Delete Elements
 node.remove()
 
+--------------------------------------------------------------------------------------------------------------------
+DOM Events:
+DOM Events allow JavaScript to add event listener or event handlers to HTML elements.
+Example:
+```
+<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+```
+- onchange:	An HTML element has been changed
+- onclick:	The user clicks an HTML element
+- onmouseover:	The user moves the mouse over an HTML element
+- onmouseout:	The user moves the mouse away from an HTML element
+- onkeydown:	The user pushes a keyboard key
+- onload:	The browser has finished loading the page
 
-----------------------------------------
+Example:
+```
+<button onclick="myFunction()">Click me</button>
+button.addEventListener("click", myFunction);
+```
+
+--------------------------------------------------------------------------------------------------------------------
 Objects
 
 Example:
@@ -508,3 +1007,66 @@ class ToyotaCar {
 }
 
 let fortuner = new ToyotaCar();
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+Shallow Copy in Objects
+- When a reference variable is copied into a new reference variable using the assignment operator, a shallow copy of the referenced object is created.
+- In simple words, a reference variable mainly stores the address of the object it refers to.
+- When a new reference variable is assigned the value of the old reference variable, the address stored in the old reference variable is copied into the new one.
+- This means both the old and new reference variables point to the same object in memory. As a result, if the state of the object changes through any of the reference 
+  variables it is reflected for both.
+  Example:
+  ```
+    let employee = {
+      eid: "E102",
+      ename: "Jack",
+      eaddress: "New York",
+      salary: 50000
+    }
+ 
+    console.log("Employee=> ", employee);
+    let newEmployee = employee;    // Shallow copy
+    console.log("New Employee=> ", newEmployee);
+     
+    console.log("---------After modification----------");
+    newEmployee.ename = "Beck";
+    console.log("Employee=> ", employee);
+    console.log("New Employee=> ", newEmployee);
+  
+    Output:
+    employee = {
+    eid: "E102",
+    ename: "Beck",
+    eaddress: "New York",
+    salary: 50000
+    }
+    employee = {
+    eid: "E102",
+    ename: "Beck",
+    eaddress: "New York",
+    salary: 50000
+    }
+  ```
+  Deep Copy in Objects
+  - Unlike the shallow copy, deep copy makes a copy of all the members of the old object, allocates a separate memory location for the new object, and then assigns the     
+    copied members to the new object.
+  - In this way, both the objects are independent of each other and in case of any modification to either one, the other is not affected. Also, if one of the objects is 
+    deleted the other still remains in the memory. 
+  - There are multiple ways to create a deep copy. Use spread opeartor or assign() method.
+    ```
+    1. Using Spread Opeartor: but one drawback of spread operator is that, it does not work for nested objects.
+    const a = {
+    name: "xyz",
+    age: 26
+    }
+    const b = {...a}
+    2. using assign(): but one drawback of assign is that, it does not work for nested objects.
+    let b = Object.assign({}, a)
+    
+    3. You simply stringify your object and parse it right after
+       let b = JSON.parse(JSON.stringify(a))
+    ```
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
